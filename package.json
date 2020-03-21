@@ -4,7 +4,8 @@
   "description": "Simple Web app to learn JS by building a MERN app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --exec babel-node server.js --ignore public/",
+    "dev": "webpack -wd"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
+    "@babel/node": "7.x",
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
