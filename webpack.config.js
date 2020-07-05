@@ -1,20 +1,26 @@
+/* eslint-disable no-dupe-keys */
+/* eslint-disable indent */
 const path = require('path');
 
 module.exports = {
     entry: './src/index.js',
-    output:{
+    output: {
         path: path.resolve('public'),
         filename: 'bundle.js',
     },
-    module:{
+    module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_moules/,
-                use: {
-                    loader: 'babel-loader',
-                },
+                use: 'babel-loader',
             },
-        ],
-    },
+            // {
+            //     test: /\.json$/,
+            //     exclude: /node_moules/,
+            //     use: 'json-loader',
+
+            // }
+        ]
+    }
 };
