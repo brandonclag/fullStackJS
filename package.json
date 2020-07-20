@@ -14,6 +14,7 @@
   "author": "Brandon Claggett",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
     "ejs": "^3.0.1",
     "eslint": "^6.8.0",
