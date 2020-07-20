@@ -7,13 +7,12 @@ import ContestPreview from './ContestPreview';
 class App extends React.Component {
   state = {
     pageHeader: 'Naming Contests',
-    contests: []
+    contests: this.props.initialContests
   };
 
   componentDidMount() {
     axios.get('/api/contests')
       .then(resp => {
-        console.log(resp);
         this.setState({
           contests: resp.data.contests
         });
