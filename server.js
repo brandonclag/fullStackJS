@@ -2,8 +2,9 @@ import config from './config';
 import apiRouter from './api';
 import sassMiddleware from 'node-sass-middleware';
 import path from 'path';
-
+import serverRender from './ServerRender';
 import express from 'express';
+
 const server = express();
 
 server.use(sassMiddleware({
@@ -12,7 +13,7 @@ server.use(sassMiddleware({
 }));
 
 server.set('view engine', 'ejs');
-import serverRender from './ServerRender';
+
 server.get('/', (req, res) => {
   serverRender()
     .then(content =>{

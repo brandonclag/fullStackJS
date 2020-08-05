@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Header from './Header';
-import axios from 'axios';
-import ContestPreview from './ContestPreview';
+import ContestList from './contestList';
+
+const pushState = (obj, url) => {
+  window.history.pushState(obj, '', url);
+};
 
 class App extends React.Component {
   state = {
@@ -10,32 +13,31 @@ class App extends React.Component {
     contests: this.props.initialContests
   };
 
+
   componentDidMount() {
-    axios.get('/api/contests')
-      .then(resp => {
-        this.setState({
-          contests: resp.data.contests
-        });
-      })
-      .catch(console.error);
 
   }
 
   componentWillUnmount() {
 
   }
+  fetchContest = (contestID) => {
+    pushState(
+      {},
+      `/contest/${contestID}`
+    );
+  }
 
   render() {
     return (
       <div className='App'>
         <Header message={this.state.pageHeader} />
-        <div>
-          {this.state.contests.map(contest =>
-            <ContestPreview key={contest.id}{...contest} />
-          )}
+        {/* <div> */}
+        <ContestList onContestClick={this.fetchContest}
+          contests={this.state.contests} />
 
-        </div>
       </div>
+      // </div>
 
 
     );
